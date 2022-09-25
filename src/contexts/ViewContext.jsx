@@ -6,10 +6,11 @@ import lastViewAudio from '../assets/sounds/last_view.mp3';
 import useSoundFX from '../hooks/useSoundFX';
 import About from '../views/About/About';
 import Greetings from '../views/Greetings/Greetings';
+import Portfolio from '../views/Portfolio/Portfolio';
 
 export const ViewContext = createContext(0);
 
-const views = [<Greetings view='Greetings' key={0} />, <About view='About' key={1} />];
+const views = [<Greetings view='Greetings' key={0} />, <About view='About' key={1} />, <Portfolio view='Portfolio' key={2} />];
 
 const ViewContextProvider = (props) => {
 	const [viewIndex, setViewIndex] = useState(0);
@@ -20,7 +21,7 @@ const ViewContextProvider = (props) => {
 
 	useEffect(() => {
 		setCurrentView(views[viewIndex]);
-	}, [viewIndex]);
+	}, [setCurrentView, viewIndex]);
 
 	const throwLastViewToast = (options) => {
 		toast.error('Não há mais nada para esse lado', {
@@ -33,19 +34,19 @@ const ViewContextProvider = (props) => {
 				fontSize: 'clamp(0.8rem, 1.5vw, 1.1rem)',
 			},
 		});
-		toggleLastViewAudio({ volume: 0.2 });
+		toggleLastViewAudio({ volume: 0.1 });
 	};
 
 	const nextView = useCallback(() => {
 		if (viewIndex < views.length - 1) {
-			toggleForwardAudio({ volume: 0.5 });
+			toggleForwardAudio({ volume: 0.2 });
 			setViewIndex(viewIndex + 1);
 		}
 	}, [viewIndex, toggleForwardAudio]);
 
 	const previousView = useCallback(() => {
 		if (viewIndex > 0) {
-			toggleBackwardAudio({ volume: 0.5 });
+			toggleBackwardAudio({ volume: 0.2 });
 			setViewIndex(viewIndex - 1);
 		}
 	}, [viewIndex, toggleBackwardAudio]);

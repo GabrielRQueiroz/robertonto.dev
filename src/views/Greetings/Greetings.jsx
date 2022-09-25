@@ -5,7 +5,7 @@ import useAudio from '../../hooks/useAudio';
 import myPicture from '../../assets/images/left-me.jpeg';
 import presentationAudio from '../../assets/sounds/presentation.mp3';
 
-import { faDiscord, faInstagram, faSteam, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faInstagram, faLinkedinIn, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -20,7 +20,7 @@ const Greetings = () => {
 
 	const callOnWhatsApp = () => window.open('https://web.whatsapp.com/send?phone=5561983025990', '_blank');
 	const callOnDiscord = () => window.open('https://discord.com/users/262736936546992130', '_blank');
-	const callOnSteam = () => window.open('https://steamcommunity.com/id/coffeey/', '_blank');
+	const callOnLinkedIn = () => window.open('https://www.linkedin.com/in/gabrielrqueiroz/', '_blank');
 	const callOnInstagram = () => window.open('https://www.instagram.com/gabriel.rqueiroz', '_blank');
 
 	const accessiblyGoToPreviousView = useCallback(() => {
@@ -38,7 +38,7 @@ const Greetings = () => {
 	return (
 		<GreetingsSection>
 			<ImageHolder onScreen={onScreen}>
-				<AudioButton onClick={toggleAudio} tabIndex={3} aria-label='Pressione para uma apresentação breve sobre mim'>
+				<AudioButton type='button' onClick={toggleAudio} tabIndex={3} aria-label='Pressione para uma apresentação breve sobre mim'>
 					<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
 				</AudioButton>
 				<img src={myPicture} alt='Eu e minha vó' />
@@ -65,8 +65,8 @@ const Greetings = () => {
 						<FontAwesomeIcon icon={faInstagram} />
 					</SpringButton>
 
-					<SpringButton tabIndex={7} onClick={callOnSteam} color='black' onFocus={accessiblyGoToPreviousView}>
-						<FontAwesomeIcon icon={faSteam} />
+					<SpringButton tabIndex={7} onClick={callOnLinkedIn} color='lightBlue' onFocus={accessiblyGoToPreviousView}>
+						<FontAwesomeIcon icon={faLinkedinIn} />
 					</SpringButton>
 				</ButtonHolder>
 			</GreetingsContainer>

@@ -15,7 +15,7 @@ export const PageHeader = styled.header`
 
 	font-size: clamp(0.9em, 576px, 1em);
 
-	z-index: 1;
+	z-index: 999;
 	transition: all 525ms ease-in-out;
 
 	& > * {

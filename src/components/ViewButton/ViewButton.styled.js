@@ -5,7 +5,7 @@ export const ViewButtonWrapper = styled.button`
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: pointer;
-	z-index: 1;
+	z-index: 999;
 
 	border: none;
 

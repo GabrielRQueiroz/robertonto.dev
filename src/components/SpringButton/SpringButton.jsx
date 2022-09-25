@@ -18,6 +18,10 @@ const buttonColorScheme = {
 		bodyBackground: 'linear-gradient(to left, hsl(0deg 0% 10%) 0%, hsl(0deg 0% 11%) 4%, hsl(0deg 0% 11%) 96%, hsl(0deg 0% 10%) 100%)',
 		faceBackground: '#232222',
 	},
+	lightBlue: {
+		bodyBackground: 'linear-gradient(to left, hsl(210deg 100% 30%) 0%, hsl(210deg 100% 40%) 4%, hsl(210deg 100% 40%) 96%, hsl(210deg 100% 30%) 100%)',
+		faceBackground: '#0077b5',
+	},
 };
 
 const SpringButton = (props) => {
@@ -28,7 +32,7 @@ const SpringButton = (props) => {
 	}, [bodyBackground, faceBackground, props.color]);
 
 	return (
-		<ButtonBody bodyBackground={bodyBackground} {...props}>
+		<ButtonBody type='button' bodyBackground={bodyBackground} {...props}>
 			<ButtonFace faceBackground={faceBackground}>{props.children}</ButtonFace>
 		</ButtonBody>
 	);
