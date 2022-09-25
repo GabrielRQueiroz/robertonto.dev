@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 
 import { Fade, Perspective } from '@egjs/flicking-plugins';
 import '@egjs/react-flicking/dist/flicking.css';
@@ -19,7 +19,7 @@ import {
 	PortfolioSlideImage,
 	PortfolioSlideLinksWrapper,
 	PortfolioSlider,
-	PortfolioSlideTitle
+	PortfolioSlideTitle,
 } from './Portfolio.styled';
 
 const techIcons = {
@@ -63,15 +63,18 @@ const techIcons = {
 
 const Portfolio = () => {
 	const { nextView, currentView } = useContext(ViewContext);
-	const _sliderPlugins = [new Fade(), new Perspective({ rotate: -0.5, scale: 0.2 })];
-
+	const [plugins, setPlugins] = useState([new Fade(), new Perspective()]);
 	const accessiblyGoToNextView = useCallback(() => {
 		currentView.props.view !== 'Portfolio' && nextView();
 	}, [currentView, nextView]);
 
+	useEffect(() => {
+		setPlugins([new Fade('', 1.2), new Perspective({ rotate: -0.5, scale: 0.2 })]);
+	}, []);
+
 	return (
 		<PortfolioSection>
-			<PortfolioSlider tabIndex={11} changeOnHold={true} onFocus={accessiblyGoToNextView} plugins={_sliderPlugins} circular={true} horizontal={false} preventClickOnDrag={true} moveType={['strict', { count: 1 }]}>
+			<PortfolioSlider tabIndex={11} changeOnHold={true} onFocus={accessiblyGoToNextView} plugins={plugins} circular={true} horizontal={false} preventClickOnDrag={true}>
 				{projects.map(({ projectName, projectType, techStack, printscreen, key, repo, live }, index) => (
 					<PortfolioSlide tabIndex={12 + index * 6} key={key}>
 						<PortfolioSlideFigure>
