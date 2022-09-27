@@ -1,6 +1,7 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { Fade, Perspective } from '@egjs/flicking-plugins';
+import '@egjs/flicking-plugins/dist/pagination.css';
 import '@egjs/react-flicking/dist/flicking.css';
 
 import projects from '../../constants/projects';
@@ -19,7 +20,7 @@ import {
 	PortfolioSlideImage,
 	PortfolioSlideLinksWrapper,
 	PortfolioSlider,
-	PortfolioSlideTitle,
+	PortfolioSlideTitle
 } from './Portfolio.styled';
 
 const techIcons = {
@@ -64,12 +65,11 @@ const techIcons = {
 const Portfolio = () => {
 	const { nextView, currentView } = useContext(ViewContext);
 	const [plugins, setPlugins] = useState([new Fade(), new Perspective()]);
-	const accessiblyGoToNextView = useCallback(() => {
-		currentView.props.view !== 'Portfolio' && nextView();
-	}, [currentView, nextView]);
+
+	const accessiblyGoToNextView = () => currentView.props.view !== 'Portfolio' && nextView();
 
 	useEffect(() => {
-		setPlugins([new Fade('', 1.2), new Perspective({ rotate: -0.5, scale: 0.2 })]);
+		setPlugins([new Fade('', 1.25), new Perspective({ rotate: 0.2, scale: 0.2 })]);
 	}, []);
 
 	return (
@@ -78,7 +78,7 @@ const Portfolio = () => {
 				{projects.map(({ projectName, projectType, techStack, printscreen, key, repo, live }, index) => (
 					<PortfolioSlide tabIndex={12 + index * 6} key={key}>
 						<PortfolioSlideFigure>
-							<PortfolioSlideImage tabIndex={13 + index * 6} aria-label={`${projectName}, ${projectType}`} src={printscreen} alt='Printscreen do projeto' />
+							<PortfolioSlideImage tabIndex={13 + index * 6} draggable={false} aria-label={`${projectName}, ${projectType}`} src={printscreen} alt='Printscreen do projeto' />
 							<div>
 								<PortfolioProjectType>{projectType}</PortfolioProjectType>
 								<PortfolioSlideTitle>{projectName}</PortfolioSlideTitle>

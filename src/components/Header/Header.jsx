@@ -3,20 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { PageHeader, SocialButton, SocialButtonWrapper } from './Header.styled';
 
-const Header = () => {
+const Header = ({ header, emoji, hideIcons }) => {
 	return (
-		<PageHeader>
+		<PageHeader hideIcons={hideIcons}>
 			<h1 tabIndex={1}>
-				O Roberto <span aria-hidden='true'>☕</span>
+				{header} <span aria-hidden='true'>{emoji}</span>
 			</h1>
-			<SocialButtonWrapper>
-				<SocialButton type='button' tabIndex={2} aria-label='Acessar perfil Github' target={'_blank'} href={'https://github.com/GabrielRQueiroz'}>
-					<FontAwesomeIcon icon={faGithub} />
-				</SocialButton>
-				<SocialButton type='button' tabIndex={2} aria-label='Acessar perfil LinkedIn' target={'_blank'} href={'https://www.linkedin.com/in/gabrielrqueiroz/'}>
-					<FontAwesomeIcon icon={faLinkedin} />
-				</SocialButton>
-			</SocialButtonWrapper>
+			{!hideIcons && (
+				<SocialButtonWrapper>
+					<SocialButton type='button' tabIndex={2} aria-label='Acessar perfil Github' target={'_blank'} href={'https://github.com/GabrielRQueiroz'}>
+						<FontAwesomeIcon icon={faGithub} />
+					</SocialButton>
+					<SocialButton type='button' tabIndex={2} aria-label='Acessar perfil LinkedIn' target={'_blank'} href={'https://www.linkedin.com/in/gabrielrqueiroz/'}>
+						<FontAwesomeIcon icon={faLinkedin} />
+					</SocialButton>
+				</SocialButtonWrapper>
+			)}
 		</PageHeader>
 	);
 };

@@ -22,7 +22,7 @@ const useSoundFX = (url) => {
 		return () => {
 			audio.removeEventListener('ended', () => setPlaying(false));
 		};
-	}, [playing, audio]);
+	}, [audio]);
 
 	return toggle;
 };

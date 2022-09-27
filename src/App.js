@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { ViewContext } from './contexts/ViewContext';
 
@@ -9,10 +9,19 @@ import { MainFrame } from './styles/Global';
 
 function App() {
 	const { viewIndex, views } = useContext(ViewContext);
+	const [header, setHeader] = useState('');
+	const [emoji, setEmoji] = useState('');
+	const [hideIcons, setHideIcons] = useState(false);
+
+	useEffect(() => {
+		setHeader(views[viewIndex].props.header);
+		setEmoji(views[viewIndex].props.emoji);
+		setHideIcons(views[viewIndex].props.hideIcons);
+	}, [viewIndex, views]);
 
 	return (
 		<>
-			<Header />
+			<Header header={header} emoji={emoji} hideIcons={hideIcons} />
 			<>
 				<ViewButton direction='left' />
 				<ViewButton direction='right' />

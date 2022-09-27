@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import catPicture from '../../assets/images/right-willow.jpg';
 import catAudio from '../../assets/sounds/meow.mp3';
@@ -15,13 +15,9 @@ const About = () => {
 	const { nextView, previousView, currentView } = useContext(ViewContext);
 	const toggleCatAudio = useSoundFX(catAudio);
 
-	const accessiblyGoToNextView = useCallback(() => {
-		currentView.props.view !== 'About' && nextView();
-	}, [currentView, nextView]);
+	const accessiblyGoToNextView = () => currentView.props.view !== 'About' && nextView();
 
-	const accessiblyGoToPreviousView = useCallback(() => {
-		currentView.props.view !== 'About' && previousView();
-	}, [currentView, previousView]);
+	const accessiblyGoToPreviousView = () => currentView.props.view !== 'About' && previousView();
 
 	return (
 		<AboutSection>

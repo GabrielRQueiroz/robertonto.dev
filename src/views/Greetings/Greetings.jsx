@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ViewContext } from '../../contexts/ViewContext';
 import useAudio from '../../hooks/useAudio';
 
@@ -23,9 +23,7 @@ const Greetings = () => {
 	const callOnLinkedIn = () => window.open('https://www.linkedin.com/in/gabrielrqueiroz/', '_blank');
 	const callOnInstagram = () => window.open('https://www.instagram.com/gabriel.rqueiroz', '_blank');
 
-	const accessiblyGoToPreviousView = useCallback(() => {
-		currentView.props.view !== 'Greetings' && previousView();
-	}, [currentView, previousView]);
+	const accessiblyGoToPreviousView = () => currentView.props.view !== 'Greetings' && previousView();
 
 	useEffect(() => {
 		if (viewIndex === 0) {

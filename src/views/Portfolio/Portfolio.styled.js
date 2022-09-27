@@ -119,7 +119,7 @@ export const PortfolioSlideTitle = styled.h3`
 
 	transform: translateY(50%);
 
-	font-size: clamp(1rem, 4vw, 1.25rem);
+	font-size: clamp(1rem, 3.5vw, 1.3rem);
 	font-weight: 700;
 	text-align: center;
 	border-radius: 10px;
@@ -232,12 +232,12 @@ export const PortfolioSlideDetail = styled.li`
 
 	& > svg {
 		font-size: clamp(1.25rem, 4vw, 1.5rem);
-		transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 	}
 
 	:hover {
 		& > svg {
-			transform: rotate(360deg);
+			transform: rotate(20deg);
 		}
 	}
 `;

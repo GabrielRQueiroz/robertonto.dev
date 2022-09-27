@@ -9,7 +9,7 @@ const useAudio = (url) => {
 			audio.volume = options?.volume || 1;
 			setPlaying(!playing);
 		},
-		[playing, audio]
+		[audio, playing]
 	);
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ const useAudio = (url) => {
 		return () => {
 			audio.removeEventListener('ended', () => setPlaying(false));
 		};
-	}, [playing, audio]);
+	}, [audio]);
 
 	return [playing, toggle];
 };
