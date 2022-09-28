@@ -53,6 +53,6 @@ export const SocialButton = styled.a`
 
 	cursor: pointer;
 
-	font-size: clamp(1.5rem, 4vw, 1.75rem);
+	font-size: clamp(1.5em, 4vw, 1.75em);
 	text-align: center;
 `;

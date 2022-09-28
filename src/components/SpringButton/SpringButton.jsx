@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ButtonBody, ButtonFace } from './SpringButton.styled';
 
 const buttonColorScheme = {

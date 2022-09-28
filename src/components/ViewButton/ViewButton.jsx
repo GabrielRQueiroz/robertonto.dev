@@ -1,6 +1,6 @@
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ViewContext } from '../../contexts/ViewContext';
 import { ViewButtonFace, ViewButtonWrapper } from './ViewButton.styled';
 
@@ -37,7 +37,7 @@ const ViewButton = ({ direction = 'right' | 'left' }) => {
 	return (
 		<>
 			<ViewButtonWrapper isDisabled={isDisabled} direction={direction} type='button' tabIndex={-1} aria-label='Mais sobre mim' onClick={handleViewChange}>
-				<ViewButtonFace isDisabled={isDisabled} class='arrow-button-face'>
+				<ViewButtonFace isDisabled={isDisabled}>
 					<FontAwesomeIcon icon={direction === 'right' ? faChevronRight : faChevronLeft} />
 				</ViewButtonFace>
 			</ViewButtonWrapper>

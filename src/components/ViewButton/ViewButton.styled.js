@@ -45,7 +45,7 @@ export const ViewButtonFace = styled.div`
 	border-radius: 50%;
 	background-color: ${({ isDisabled }) => (isDisabled ? '#3a3a3a' : '#26272a')};
 
-	font-size: clamp(1rem, 4vw, 1.2rem);
+	font-size: clamp(1em, 4vw, 1.2em);
 	text-align: center;
 
 	will-change: transform;

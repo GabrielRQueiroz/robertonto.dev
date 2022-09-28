@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ViewContext } from '../../contexts/ViewContext';
 import useAudio from '../../hooks/useAudio';
 
@@ -16,7 +16,7 @@ import { AudioButton, ButtonHolder, GreetingsContainer, GreetingsGreetings, Gree
 const Greetings = () => {
 	const [onScreen, setOnScreen] = useState(false);
 	const [isPlaying, toggleAudio] = useAudio(presentationAudio);
-	const { currentView, viewIndex, previousView } = useContext(ViewContext);
+	const { currentView, previousView } = useContext(ViewContext);
 
 	const callOnWhatsApp = () => window.open('https://web.whatsapp.com/send?phone=5561983025990', '_blank');
 	const callOnDiscord = () => window.open('https://discord.com/users/262736936546992130', '_blank');
@@ -26,12 +26,8 @@ const Greetings = () => {
 	const accessiblyGoToPreviousView = () => currentView.props.view !== 'Greetings' && previousView();
 
 	useEffect(() => {
-		if (viewIndex === 0) {
-			setOnScreen(true);
-		} else {
-			setOnScreen(false);
-		}
-	}, [viewIndex, setOnScreen]);
+		currentView.props.view === 'Greetings' ? setOnScreen(true) : setOnScreen(false);
+	}, [currentView]);
 
 	return (
 		<GreetingsSection>
@@ -42,7 +38,7 @@ const Greetings = () => {
 				<img src={myPicture} alt='Eu e minha vó' />
 			</ImageHolder>
 			<GreetingsContainer>
-				<GreetingsGreetings class='greetings'>
+				<GreetingsGreetings>
 					<h2>Tudo bem?</h2>
 					<p>Que tal uma conversa?</p>
 				</GreetingsGreetings>

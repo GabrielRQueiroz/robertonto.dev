@@ -47,7 +47,7 @@ export const AboutContainer = styled.div`
 		height: auto;
 		background-color: #1d1f1f;
 
-		font-size: clamp(1.2rem, 5vw, 1.5rem);
+		font-size: clamp(1.2em, 5vw, 1.5em);
 
 		text-align: center;
 	}
@@ -79,7 +79,7 @@ export const ImageHolder = styled.button`
 	}
 
 	&:hover img {
-		animation: ${shakingEffect} 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+		animation: ${shakingEffect} 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 		transform: translate3d(0, 0, 0) rotate(5deg);
 		perspective: 1000px;
 	}
@@ -93,7 +93,7 @@ export const ImageHolder = styled.button`
 
 		text-align: center;
 
-		font-size: clamp(1.3rem, 5vw, 2rem);
+		font-size: clamp(1.3em, 5vw, 2em);
 		font-family: 'Qwitcher Grypen', cursive;
 
 		color: #fff;
@@ -194,7 +194,7 @@ export const AboutTable = styled.table`
 	}
 
 	td svg {
-		font-size: 1.5rem;
+		font-size: 1.5em;
 	}
 
 	@media screen and (max-width: 576px) {
@@ -215,7 +215,7 @@ export const AboutTable = styled.table`
 		td {
 			flex-direction: row;
 			width: 100%;
-			font-size: clamp(0.8rem, 2vw, 0.9rem);
+			font-size: clamp(0.8em, 2vw, 0.9em);
 			padding: 8px;
 		}
 
@@ -225,7 +225,7 @@ export const AboutTable = styled.table`
 		}
 
 		td svg {
-			font-size: clamp(1.2rem, 5vw, 1.5rem);
+			font-size: clamp(1.2em, 5vw, 1.5em);
 		}
 	}
 `;

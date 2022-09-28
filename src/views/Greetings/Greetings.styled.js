@@ -64,7 +64,7 @@ export const AudioButton = styled.button`
 	svg {
 		opacity: 0;
 
-		font-size: 4rem;
+		font-size: 4em;
 		color: #fff;
 
 		border-radius: 50%;
@@ -89,7 +89,7 @@ export const GreetingsContainer = styled.div`
 
 	width: calc(25vw + 16px);
 
-	font-size: 1.5rem;
+	font-size: clamp(1, 3vw, 1.5em);
 
 	@media screen and (max-width: 576px) {
 		width: calc(50vw + 15vw);
@@ -108,11 +108,11 @@ export const GreetingsGreetings = styled.div`
 	margin-bottom: 8px;
 
 	h2 {
-		font-size: clamp(1rem, 5vw, 2rem);
+		font-size: clamp(1em, 5vw, 2em);
 	}
 
 	p {
-		font-size: 1rem;
+		font-size: 1em;
 		font-style: italic;
 		font-weight: 400;
 
@@ -121,7 +121,7 @@ export const GreetingsGreetings = styled.div`
 `;
 
 export const Separator = styled.p`
-	font-size: 0.9rem;
+	font-size: 0.9em;
 	position: relative;
 	background-color: #1d1f1f;
 

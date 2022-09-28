@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import backwardAudio from '../assets/sounds/coming_button_click.mp3';
 import forwardAudio from '../assets/sounds/going_button_click.mp3';
@@ -14,8 +14,8 @@ export const ViewContext = createContext(0);
 const views = [
 	<Greetings view='Greetings' header='O Roberto' emoji='☕' hideIcons={false} key={0} />,
 	<About view='About' header='O Roberto' emoji='☕' hideIcons={false} key={1} />,
-	<Portfolio view='Portfolio' header='Portfolio' emoji='💻' hideIcons={true} key={2} />,
-	<Resume view='Resume' header='Résumé' emoji='👜' hideIcons={true} key={3} />,
+	<Resume view='Resume' header='Résumé' emoji='💼' hideIcons={true} key={2} />,
+	<Portfolio view='Portfolio' header='Portfolio' emoji='💻' hideIcons={true} key={3} />,
 ];
 
 const ViewContextProvider = (props) => {
@@ -37,7 +37,7 @@ const ViewContextProvider = (props) => {
 			style: {
 				color: '#fff',
 				backgroundColor: '#2b2d2d',
-				fontSize: 'clamp(0.8rem, 1.5vw, 1.1rem)',
+				fontSize: 'clamp(0.8em, 1.5vw, 1.1em)',
 			},
 		});
 		toggleLastViewAudio({ volume: 0.1 });

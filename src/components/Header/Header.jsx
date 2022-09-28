@@ -1,9 +1,22 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useContext, useEffect, useState } from 'react';
+import { ViewContext } from '../../contexts/ViewContext';
 
 import { PageHeader, SocialButton, SocialButtonWrapper } from './Header.styled';
 
-const Header = ({ header, emoji, hideIcons }) => {
+const Header = () => {
+	const { viewIndex, views } = useContext(ViewContext);
+	const [header, setHeader] = useState('');
+	const [emoji, setEmoji] = useState('');
+	const [hideIcons, setHideIcons] = useState(false);
+
+	useEffect(() => {
+		setHeader(views[viewIndex].props.header);
+		setEmoji(views[viewIndex].props.emoji);
+		setHideIcons(views[viewIndex].props.hideIcons);
+	}, [viewIndex, views]);
+
 	return (
 		<PageHeader hideIcons={hideIcons}>
 			<h1 tabIndex={1}>

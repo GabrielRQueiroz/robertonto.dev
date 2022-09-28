@@ -35,7 +35,7 @@ export const ButtonFace = styled.div`
 	background-color: ${({ faceBackground }) => faceBackground};
 	color: #fff;
 
-	font-size: clamp(0.95rem, 3vw, 1.2rem);
+	font-size: clamp(1.25em, 3vw, 1.5em);
 	text-align: center;
 
 	will-change: transform;

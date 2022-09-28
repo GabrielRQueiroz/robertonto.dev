@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 import catPicture from '../../assets/images/right-willow.jpg';
 import catAudio from '../../assets/sounds/meow.mp3';
