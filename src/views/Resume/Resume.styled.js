@@ -7,7 +7,7 @@ export const ResumeSection = styled.section`
 	align-items: center;
 	justify-content: center;
 
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 `;
 

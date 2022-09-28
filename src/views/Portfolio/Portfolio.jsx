@@ -31,7 +31,7 @@ const Portfolio = () => {
 
 	return (
 		<PortfolioSection>
-			<PortfolioSlider tabIndex={100} onFocus={accessiblyGoToNextView} plugins={_plugins} circular={false} horizontal={false} preventClickOnDrag={true} moveType={['strict', 1]}>
+			<PortfolioSlider tabIndex={100} onFocus={accessiblyGoToNextView} plugins={_plugins} circular={true} horizontal={false} preventClickOnDrag={true} moveType={['strict', 1]}>
 				{projects.map(({ projectName, projectType, techStack, printscreen, key, repo, live }, index) => (
 					<PortfolioSlide tabIndex={101 + index * 6} key={key}>
 						<PortfolioSlideFigure>

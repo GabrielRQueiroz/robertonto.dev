@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { shakingEffect } from '../../styles/Animations';
 
 export const AboutSection = styled.section`
+	width: 100vw;
+
 	gap: calc(8px + 2vw);
 
 	@media screen and (max-width: 576px) {

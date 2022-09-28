@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const PageHeader = styled.header`
 	position: fixed;
 
+	top: 0.25em;
 	left: 0;
 
 	width: 100vw;

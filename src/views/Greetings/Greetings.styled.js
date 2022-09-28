@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { rotateClipPath } from '../../styles/Animations';
 
 export const GreetingsSection = styled.section`
+	width: 100vw;
+
 	@media screen and (max-width: 576px) {
 		gap: 0;
 	}
