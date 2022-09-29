@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+<!-- markdownlint-disable MD030 -->
+<!-- markdownlint-disable MD010 -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# O Roberto ☕
 
-## Available Scripts
+🎊 Welcome to the source code of my personal website, [robertonto.netlify.app ↗️](https://robertonto.netlify.app/).
 
-In the project directory, you can run:
+## 📝 What is it made of?
 
-### `yarn start`
+-  ⚛️ [React](https://reactjs.org/) for the frontend;
+-  💅 [Styled Components](https://styled-components.com/) for styling;
+-  🖼️ [Flicking](https://naver.github.io/egjs-flicking/) for beautiful carousels
+-  🌐 [Netlify](https://www.netlify.com/) for hosting.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📝 ~~🧟 (Probably obscure)~~ Things I made
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🪝 Custom hooks
 
-### `yarn test`
+> `useAudio/useSoundFX` - both are supposed to receive an audio file as a parameter and return the "playing" state and the "toggle" function.
+>
+> -  Their difference is that `useSoundFX` is supposed to be used for sound effects, playing from the beginning every time the "toggle" function is called.
+> -  `useAudio` is meant to be used for background music/audio, so it will alternate between paused/playing state the audio from .
 
-Launches the test runner in the interactive watch mode.\
-See the section Greetings [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📦 Contexts
 
-### `yarn build`
+> `ViewContext` - this context is used to inform the active view of the website to other components. Its states are `viewIndex, currentView, views` and its state setter functions are `nextView, previousView`.
+>
+> -  `views` is an array with each view components with the props `view`, `heading`, `emoji` and `hideIcons`.
+> -  The `currentView` state can be "About", "Greetings", "Resume" and "Portfolio", which are all React components within the `views` array.
+> -  The `nextView` and `previousView` functions are bound to the left-right button in the page, changing the current view component shown to the user.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🎨 Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> `Header` - a component that dynamically updates its `heading`, `icon` and `icons' visibility` states based on the current view in the user's screen. These states are set based on the `ViewContext` view changes.
+>
+> ---
+>
+> `SpringButton` - a button with a spring animation when hovered. It can be personalized through the `color` prop. It can also receive `children` to be rendered inside the button.
+>
+> -  Theres is a limited list of `color` props: "blue", "green", "pink", "black", "lightBlue".
 
-See the section Greetings [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📊 Data
 
-### `yarn eject`
+> Currently, there are two files containing the carrousel data: `events.js` and `projects.js`. They are both arrays of objects with the following structure:
+>
+> -  `events`:
+>
+> ```js
+> {
+> 	'id', 'icon', 'title', 'location', 'period', 'description';
+> }
+> ```
+>
+> -  `projects`:
+>
+> ```js
+> {
+> 	'projectName', 'projectType', 'techStack', 'printscreen', 'key', 'repo', 'live';
+> }
+> ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**👉 There are plans of changing from static data files to actual database.**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📝 License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
