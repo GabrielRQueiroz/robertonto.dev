@@ -45,7 +45,7 @@ export const AudioButton = styled.button`
 	height: 100%;
 	width: 100%;
 
-	background-color: #1d1f1f00;
+	background-color: rgba(27, 29, 30, 0);
 
 	display: flex;
 	justify-content: center;
@@ -60,7 +60,7 @@ export const AudioButton = styled.button`
 	:hover,
 	:focus {
 		cursor: pointer;
-		background-color: #1d1f1f90;
+		background-color: rgba(27, 29, 30, 0.75);
 	}
 
 	svg {
@@ -125,7 +125,7 @@ export const GreetingsGreetings = styled.div`
 export const Separator = styled.p`
 	font-size: 0.9em;
 	position: relative;
-	background-color: #1d1f1f;
+	background-color: rgb(27, 29, 30);
 
 	::before,
 	::after {

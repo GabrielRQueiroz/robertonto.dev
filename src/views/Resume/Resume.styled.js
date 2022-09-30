@@ -30,7 +30,7 @@ export const ResumeEvent = styled.div`
 	width: 45vw;
 	height: auto;
 
-	background-color: #1d1f1f;
+	background-color: rgb(27, 29, 30);
 
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
@@ -68,12 +68,14 @@ export const ResumeEvent = styled.div`
 
 		padding: 0.4em;
 
-		background-color: #1d1f1f;
+		background-color: rgb(27, 29, 30);
 		border-radius: 50%;
 
 		border: 1px solid white;
+	}
 
-		cursor: pointer;
+	@media screen and (max-width: 992px) {
+		width: 60vw;
 	}
 
 	@media screen and (max-width: 768px) {
@@ -135,7 +137,7 @@ export const ResumeEventDescription = styled.p`
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
 
-		background-color: #1d1f1f;
+		background-color: rgb(27, 29, 30);
 		border: 2px solid white;
 		border-radius: 50%;
 		padding: 0.25em;

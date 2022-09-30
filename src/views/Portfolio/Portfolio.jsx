@@ -1,8 +1,6 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { Fade, Perspective } from '@egjs/flicking-plugins';
-import '@egjs/flicking-plugins/dist/pagination.css';
-import '@egjs/react-flicking/dist/flicking.css';
 
 import projects from '../../constants/projects';
 
@@ -10,6 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faComputer, faCubesStacked } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ViewContext } from '../../contexts/ViewContext';
+import useViewportDimensions from '../../hooks/useViewportDimensions';
 import {
 	PortfolioProjectType,
 	PortfolioSection,
@@ -25,13 +24,43 @@ import {
 
 const Portfolio = () => {
 	const { nextView, currentView } = useContext(ViewContext);
-	const _plugins = [new Fade('', 1.25), new Perspective({ rotate: 0.25, scale: 0.25 })];
+	const [onScreen, setOnScreen] = useState(false);
+	const [perspective, setPerspective] = useState(0.1);
+	const [fade, setFade] = useState(1.25);
+	const [width] = useViewportDimensions();
+	const _plugins = [new Fade('', fade), new Perspective({ rotate: perspective, scale: perspective })];
 
 	const accessiblyGoToNextView = () => currentView.props.view !== 'Portfolio' && nextView();
 
+	useEffect(() => {
+		// Seems useless but it's a hack to avoid unexpected view bugs on the slider.
+		currentView.props.view !== 'Portfolio' && setOnScreen(false);
+		currentView.props.view === 'Portfolio' && setOnScreen(true);
+	}, [currentView]);
+
+	useEffect(() => {
+		if (width > 768) {
+			setPerspective(0.2);
+		} else if (width > 576) {
+			setPerspective(0.3);
+		} else {
+			setPerspective(0.4);
+		}
+	}, [width]);
+
+	useEffect(() => {
+		if (width > 768) {
+			setFade(1.1);
+		} else if (width > 576) {
+			setFade(1.25);
+		} else {
+			setFade(1.4);
+		}
+	}, [width]);
+
 	return (
 		<PortfolioSection>
-			<PortfolioSlider tabIndex={100} onFocus={accessiblyGoToNextView} plugins={_plugins} circular={true} horizontal={false} preventClickOnDrag={true} moveType={['strict', 1]}>
+			<PortfolioSlider tabIndex={100} onScreen={onScreen} onFocus={accessiblyGoToNextView} plugins={_plugins} circular={true} horizontal={false} preventClickOnDrag={true}>
 				{projects.map(({ projectName, projectType, techStack, printscreen, key, repo, live }, index) => (
 					<PortfolioSlide tabIndex={101 + index * 6} key={key}>
 						<PortfolioSlideFigure>

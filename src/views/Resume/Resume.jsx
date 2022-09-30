@@ -1,10 +1,12 @@
-import { Fade, Perspective } from '@egjs/flicking-plugins';
-import '@egjs/flicking-plugins/dist/pagination.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
+
 import events from '../../constants/events';
+
 import { ViewContext } from '../../contexts/ViewContext';
 import { ResumeEvent, ResumeEventDate, ResumeEventDescription, ResumeEventLocation, ResumeEventTitle, ResumeSection, ResumeTimeline } from './Resume.styled';
+
+import { Fade, Perspective } from '@egjs/flicking-plugins';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Resume = () => {
 	const { currentView, nextView, previousView } = useContext(ViewContext);

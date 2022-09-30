@@ -20,6 +20,8 @@
 >
 > -  Their difference is that `useSoundFX` is supposed to be used for sound effects, playing from the beginning every time the "toggle" function is called.
 > -  `useAudio` is meant to be used for background music/audio, so it will alternate between paused/playing state the audio from .
+>
+> `useViewportDimensions` - returns the current viewport dimensions on an array of [width, height] in pixels. Was used to make the carousels responsive.
 
 ### 📦 Contexts
 
@@ -37,7 +39,11 @@
 >
 > `SpringButton` - a button with a spring animation when hovered. It can be personalized through the `color` prop. It can also receive `children` to be rendered inside the button.
 >
-> -  Theres is a limited list of `color` props: "blue", "green", "pink", "black", "lightBlue".
+> -  Theres is a limited list of `color` props: "blue", "green", "pink", "black", "lightBlue", "red".
+>
+> ---
+>
+> `Rocket` - a rocket button to skip from first view to last view (and vice-versa).
 
 ### 📊 Data
 

@@ -9,6 +9,8 @@ export const ButtonBody = styled.button`
 	background-image: ${({ bodyBackground }) => bodyBackground};
 	outline-offset: 4px;
 
+	box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.2);
+
 	border: none;
 
 	transition: all 0.1s ease-in-out;

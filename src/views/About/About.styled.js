@@ -47,7 +47,7 @@ export const AboutContainer = styled.div`
 
 		width: auto;
 		height: auto;
-		background-color: #1d1f1f;
+		background-color: rgb(27, 29, 30);
 
 		font-size: clamp(1.2em, 5vw, 1.5em);
 
@@ -95,7 +95,7 @@ export const ImageHolder = styled.button`
 
 		text-align: center;
 
-		font-size: clamp(1.3em, 5vw, 2em);
+		font-size: clamp(1.75em, 4vw, 3em);
 		font-family: 'Qwitcher Grypen', cursive;
 
 		color: #fff;
@@ -184,7 +184,7 @@ export const AboutTable = styled.table`
 		width: 0;
 		background-color: #fafafa;
 
-		bottom: -2px;
+		bottom: -4px;
 		left: 50%;
 		transform: translateX(-50%);
 

@@ -14,16 +14,16 @@ const events = [
 		icon: faGraduationCap,
 		title: 'Engenharia de Computação',
 		location: 'Universidade de Brasília - UnB',
-		period: '2022 - 2026',
-		description: 'Já sabendo criar páginas com React, ingressei no curso de engenharia de computação acreditando na possibilidade de adquirir conhecimentos além da área da computação.',
+		period: '2022 - Hoje',
+		description: 'Ingressei no curso de engenharia de computação acreditando na possibilidade de adquirir conhecimentos além da área da computação.',
 	},
 	{
 		id: '3',
 		icon: faBriefcase,
-		title: 'Dev Full-Stack',
-		location: 'CJR',
+		title: 'Dev Full-Stack Trainee',
+		location: 'CJR - UnB',
 		period: '2022 - Hoje',
-		description: 'Trabalho como desenvolvedor full-stack na CJR, EJ da UnB, atuando volutariamente no desenvolvimento de aplicações Web em React e Node.',
+		description: 'Sou um desenvolvedor full-stack na CJR, EJ da UnB, atuando no desenvolvimento de serviços e aplicações Web em React e Node.',
 	},
 ];
 

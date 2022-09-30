@@ -38,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
 
    body {
       height: 100%;
-      background-color: #1d1f1f;
+      background-color: rgb(27, 29, 30);
    }
 
    main > section {
