@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { appearEffect, implodeEffect } from '../../styles/Animations';
 
 export const ViewButtonWrapper = styled.button`
 	position: absolute;
@@ -12,7 +13,9 @@ export const ViewButtonWrapper = styled.button`
 	width: clamp(40px, 7.5vw, 56px);
 	height: clamp(40px, 7.5vw, 56px);
 	border-radius: 50%;
-	background-color: #1a1a1a;
+	background-color: rgb(35, 38, 38);
+
+	box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.2);
 
 	display: flex;
 	justify-content: center;
@@ -22,13 +25,17 @@ export const ViewButtonWrapper = styled.button`
 	left: ${(props) => (props.direction === 'right' ? 'auto' : '16px')};
 	right: ${(props) => (props.direction === 'right' ? '16px' : 'auto')};
 
+	animation: ${({ isDisabled }) => (isDisabled ? implodeEffect : appearEffect)} 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+	animation-delay: 100ms;
+	animation-fill-mode: ${({ isDisabled }) => (isDisabled ? 'forwards' : 'backwards')};
+
 	:hover > div {
-		transform: ${({ isDisabled }) => !isDisabled && 'translateY(-6px)'};
+		transform: translateY(-6px);
 		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 	}
 
 	:active > div {
-		transform: ${({ isDisabled }) => !isDisabled && 'translateY(-2px)'};
+		transform: translateY(-2px);
 	}
 `;
 
@@ -43,17 +50,12 @@ export const ViewButtonFace = styled.div`
 	align-items: center;
 
 	border-radius: 50%;
-	background-color: ${({ isDisabled }) => (isDisabled ? '#3a3a3a' : '#26272a')};
+	background-color: rgb(43, 45, 45);
 
 	font-size: clamp(1em, 4vw, 1.2em);
 	text-align: center;
 
 	will-change: transform;
 	transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-	transform: ${({ isDisabled }) => !isDisabled && 'translateY(-4px)'};
-
-	svg {
-		transition: 500ms;
-		filter: ${({ isDisabled }) => isDisabled && 'invert(70%)'};
-	}
+	transform: translateY(-4px);
 `;

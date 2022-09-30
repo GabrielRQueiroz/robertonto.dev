@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
 import backwardAudio from '../assets/sounds/coming_button_click.mp3';
 import forwardAudio from '../assets/sounds/going_button_click.mp3';
-import lastViewAudio from '../assets/sounds/last_view.mp3';
+import rocketSound from '../assets/sounds/rocket_sound.wav';
 import useSoundFX from '../hooks/useSoundFX';
 import About from '../views/About/About';
+import Contact from '../views/Contact/Contact';
 import Greetings from '../views/Greetings/Greetings';
 import Portfolio from '../views/Portfolio/Portfolio';
 import Resume from '../views/Resume/Resume';
@@ -12,10 +12,11 @@ import Resume from '../views/Resume/Resume';
 export const ViewContext = createContext(0);
 
 const views = [
-	<Greetings view='Greetings' header='O Roberto' emoji='☕' hideIcons={false} key={0} />,
-	<About view='About' header='O Roberto' emoji='☕' hideIcons={false} key={1} />,
-	<Resume view='Resume' header='Résumé' emoji='💼' hideIcons={true} key={2} />,
-	<Portfolio view='Portfolio' header='Portfolio' emoji='💻' hideIcons={true} key={3} />,
+	<Greetings view='Greetings' heading='O Roberto' emoji='☕' hideIcons={false} key={0} />,
+	<About view='About' heading='O Roberto' emoji='☕' hideIcons={false} key={1} />,
+	<Resume view='Resume' heading='Résumé' emoji='💼' hideIcons={true} key={2} />,
+	<Portfolio view='Portfolio' heading='Portfólio' emoji='💻' hideIcons={true} key={3} />,
+	<Contact view='Contact' heading='Contato' emoji='📫' hideIcons={false} key={4} />,
 ];
 
 const ViewContextProvider = (props) => {
@@ -23,25 +24,11 @@ const ViewContextProvider = (props) => {
 	const [currentView, setCurrentView] = useState(views[viewIndex]);
 	const toggleForwardAudio = useSoundFX(forwardAudio);
 	const toggleBackwardAudio = useSoundFX(backwardAudio);
-	const toggleLastViewAudio = useSoundFX(lastViewAudio);
+	const toggleRocketSound = useSoundFX(rocketSound);
 
 	useEffect(() => {
 		setCurrentView(views[viewIndex]);
 	}, [viewIndex]);
-
-	const throwLastViewToast = (options) => {
-		toast.error('Não há mais nada para esse lado', {
-			position: `top-${options?.position}` || 'top-left',
-			icon: options?.icon || '🚫',
-			duration: options?.duration || 2000,
-			style: {
-				color: '#fff',
-				backgroundColor: '#2b2d2d',
-				fontSize: 'clamp(0.8em, 1.5vw, 1.1em)',
-			},
-		});
-		toggleLastViewAudio({ volume: 0.1 });
-	};
 
 	const nextView = () => {
 		if (viewIndex < views.length - 1) {
@@ -57,7 +44,17 @@ const ViewContextProvider = (props) => {
 		}
 	};
 
-	return <ViewContext.Provider value={{ viewIndex, currentView, views, nextView, previousView, throwLastViewToast }}>{props.children}</ViewContext.Provider>;
+	const skipToEnd = () => {
+		toggleRocketSound({ volume: 1 });
+		setViewIndex(views.length - 1);
+	};
+
+	const skipToBeginning = () => {
+		toggleRocketSound({ volume: 1 });
+		setViewIndex(0);
+	};
+
+	return <ViewContext.Provider value={{ viewIndex, currentView, views, nextView, previousView, skipToEnd, skipToBeginning }}>{props.children}</ViewContext.Provider>;
 };
 
 export default ViewContextProvider;

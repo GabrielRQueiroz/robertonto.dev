@@ -38,7 +38,7 @@ const Greetings = () => {
 				<img src={myPicture} alt='Eu e minha vó' />
 			</ImageHolder>
 			<GreetingsContainer>
-				<GreetingsGreetings>
+				<GreetingsGreetings tabIndex={4}>
 					<h2>Tudo bem?</h2>
 					<p>Que tal uma conversa?</p>
 				</GreetingsGreetings>

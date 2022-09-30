@@ -140,6 +140,11 @@ const projects = [
 				faIcon: faEthereum,
 				color: '#3c3c3d',
 			},
+			{
+				tech: 'Firebase',
+				faIcon: faDatabase,
+				color: '#ffca28',
+			},
 		],
 		printscreen: 'https://gabrielr-queiroz.nimbusweb.me/box/attachment/7668384/prpl771ezth1h395kg0d/2ScnWcdTvrkERc98/krypt.png',
 		key: '168c93fe-566e-4513-9820-f2dc632c3356',

@@ -68,3 +68,31 @@ export const shakingEffect = keyframes`
       transform: translate3d(4px, 0, 0) rotate(5deg);
    }
 `;
+
+export const implodeEffect = keyframes`
+	0% {
+		transform: translateY(-50%) scale(1);
+	}
+
+	40%  {
+		transform: translateY(-50%) scale(1.1);
+	}
+
+	100% {
+		transform: translateY(-50%) scale(0);
+	}
+`;
+
+export const appearEffect = keyframes`
+	0% {
+		transform: translateY(-50%) scale(0);
+	}
+
+	60%  {
+		transform: translateY(-50%) scale(1.1);
+	}
+
+	100% {
+		transform: translateY(-50%) scale(1);
+	}
+`;

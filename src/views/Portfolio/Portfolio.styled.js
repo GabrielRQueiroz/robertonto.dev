@@ -12,7 +12,7 @@ export const PortfolioSection = styled.section`
 `;
 
 export const PortfolioSlider = styled(Flicking)`
-	height: 100%;
+	height: ${(props) => (props.onScreen ? '100%' : '99%')};
 `;
 
 export const PortfolioSlide = styled.div`
@@ -46,6 +46,10 @@ export const PortfolioSlide = styled.div`
 			opacity: 1;
 			transform: translateY(0);
 		}
+	}
+
+	@media screen and (max-width: 992px) {
+		width: 60vw;
 	}
 
 	@media screen and (max-width: 768px) {
@@ -162,7 +166,7 @@ export const PortfolioSlideLinksWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 
-	padding: 0.5em;
+	padding: 0.5em 1em;
 	border-radius: 4px 0 0 0;
 
 	gap: 1em;
@@ -182,6 +186,10 @@ export const PortfolioSlideLinksWrapper = styled.div`
 			font-size: clamp(0.9em, 4vw, 1.2em);
 			margin-right: 0.25em;
 		}
+	}
+
+	@media screen and (max-width: 576px) {
+		padding: 0.5em 1.5em;
 	}
 `;
 

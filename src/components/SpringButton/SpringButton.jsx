@@ -22,6 +22,14 @@ const buttonColorScheme = {
 		bodyBackground: 'linear-gradient(to left, hsl(210deg 100% 30%) 0%, hsl(210deg 100% 40%) 4%, hsl(210deg 100% 40%) 96%, hsl(210deg 100% 30%) 100%)',
 		faceBackground: '#0077b5',
 	},
+	red: {
+		bodyBackground: 'linear-gradient(to left, hsl(0deg 100% 30%) 0%, hsl(0deg 100% 40%) 4%, hsl(0deg 100% 40%) 96%, hsl(0deg 100% 30%) 100%)',
+		faceBackground: '#e63946',
+	},
+	amethyst: {
+		bodyBackground: 'linear-gradient(to left, hsl(258deg 100% 30%) 0%, hsl(258deg 100% 40%) 4%, hsl(258deg 100% 40%) 96%, hsl(258deg 100% 30%) 100%)',
+		faceBackground: '#4a47a3',
+	},
 };
 
 const SpringButton = (props) => {

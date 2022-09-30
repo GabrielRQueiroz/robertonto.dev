@@ -7,12 +7,12 @@ import { PageHeader, SocialButton, SocialButtonWrapper } from './Header.styled';
 
 const Header = () => {
 	const { viewIndex, views } = useContext(ViewContext);
-	const [header, setHeader] = useState('');
+	const [heading, setHeading] = useState('');
 	const [emoji, setEmoji] = useState('');
 	const [hideIcons, setHideIcons] = useState(false);
 
 	useEffect(() => {
-		setHeader(views[viewIndex].props.header);
+		setHeading(views[viewIndex].props.heading);
 		setEmoji(views[viewIndex].props.emoji);
 		setHideIcons(views[viewIndex].props.hideIcons);
 	}, [viewIndex, views]);
@@ -20,7 +20,7 @@ const Header = () => {
 	return (
 		<PageHeader hideIcons={hideIcons}>
 			<h1 tabIndex={1}>
-				{header} <span aria-hidden='true'>{emoji}</span>
+				{heading} <span aria-hidden='true'>{emoji}</span>
 			</h1>
 			{!hideIcons && (
 				<SocialButtonWrapper>
