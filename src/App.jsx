@@ -12,9 +12,6 @@ function App() {
 	const { viewIndex, views } = useContext(ViewContext);
 
 	useEffect(() => {
-		// Lock screen orientation to portrait
-		window.screen.orientation.lock('portrait');
-
 		// Disable pinch zoom
 		document.addEventListener('gesturestart', (e) => e.preventDefault());
 

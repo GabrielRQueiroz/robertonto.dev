@@ -17,7 +17,7 @@ const Contact = () => {
 	const accessiblyGoToNextView = () => currentView.props.view !== 'Contact' && nextView();
 
 	const checkMail = (email) => {
-		const mailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+		const mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (mailRegex.test(email)) {
 			return true;
 		} else {
@@ -74,21 +74,21 @@ const Contact = () => {
 	return (
 		<ContactSection>
 			<ContactContainer>
-				<ContactForm onFocus={accessiblyGoToNextView} onSubmit={submitMessage} method='POST' id='contact'>
+				<ContactForm onFocus={accessiblyGoToNextView} tabIndex={300} onSubmit={submitMessage} method='POST' id='contact'>
 					<div>
 						<label htmlFor='name'>Nome:</label>
-						<input type='text' name='user_name' id='name' placeholder='Seu nome' required />
+						<input tabIndex={301} type='text' name='user_name' id='name' placeholder='Seu nome' required />
 					</div>
 					<div>
 						<label htmlFor='email'>E-mail:</label>
-						<input type='email' name='user_email' id='email' placeholder='Seu e-mail' required />
+						<input tabIndex={302} type='email' name='user_email' id='email' placeholder='Seu e-mail' required />
 					</div>
 					<div>
 						<label htmlFor='message'>Mensagem:</label>
-						<textarea name='message' id='message' placeholder='Sua mensagem' required />
+						<textarea tabIndex={303} name='message' id='message' placeholder='Sua mensagem' required />
 					</div>
 				</ContactForm>
-				<SpringButton color='amethyst' form='contact' type='submit' value='Submit'>
+				<SpringButton tabIndex={304} color='amethyst' form='contact' type='submit' value='Submit'>
 					Enviar <FontAwesomeIcon icon={faPaperPlane} />
 				</SpringButton>
 			</ContactContainer>

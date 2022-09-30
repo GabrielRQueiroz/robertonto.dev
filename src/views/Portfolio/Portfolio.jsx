@@ -23,7 +23,7 @@ import {
 } from './Portfolio.styled';
 
 const Portfolio = () => {
-	const { nextView, currentView } = useContext(ViewContext);
+	const { nextView, currentView, previousView } = useContext(ViewContext);
 	const [onScreen, setOnScreen] = useState(false);
 	const [perspective, setPerspective] = useState(0.1);
 	const [fade, setFade] = useState(1.25);
@@ -31,6 +31,7 @@ const Portfolio = () => {
 	const _plugins = [new Fade('', fade), new Perspective({ rotate: perspective, scale: perspective })];
 
 	const accessiblyGoToNextView = () => currentView.props.view !== 'Portfolio' && nextView();
+	const accessiblyGoToPreviousView = () => currentView.props.view !== 'Portfolio' && previousView();
 
 	useEffect(() => {
 		// Seems useless but it's a hack to avoid unexpected view bugs on the slider.
@@ -88,7 +89,7 @@ const Portfolio = () => {
 							</h6>
 							<ul tabIndex={105 + index * 6} aria-label={'Stack utilizada nesse projeto'}>
 								{techStack.map(({ tech, faIcon, color }) => (
-									<PortfolioSlideDetail tabIndex={106 + index * 6} aria-label={tech} hoverColor={color} key={tech}>
+									<PortfolioSlideDetail onFocus={projects.length - 1 === index ? accessiblyGoToPreviousView : null} tabIndex={106 + index * 6} aria-label={tech} hoverColor={color} key={tech}>
 										<FontAwesomeIcon icon={faIcon} />
 										<p>{tech}</p>
 									</PortfolioSlideDetail>
