@@ -19,7 +19,7 @@ const ViewContextProvider = (props) => {
 	const toggleForwardAudio = useSoundFX(forwardAudio);
 	const toggleBackwardAudio = useSoundFX(backwardAudio);
 	const toggleRocketSound = useSoundFX(rocketSound);
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 
 	const views = useMemo(
 		() => [

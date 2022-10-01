@@ -15,7 +15,7 @@ import { AboutContainer, AboutSection, AboutTable, ImageHolder } from './About.s
 const About = () => {
 	const { nextView, previousView, currentView } = useContext(ViewContext);
 	const toggleCatAudio = useSoundFX(catAudio);
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 
 	const accessiblyGoToNextView = () => currentView.props.view !== 'About' && nextView();
 
