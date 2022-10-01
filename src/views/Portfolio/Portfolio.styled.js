@@ -29,7 +29,7 @@ export const PortfolioSlide = styled.div`
 	border-radius: 10px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
-	border: 2px dashed white;
+	border: 2px dashed rgb(365, 365, 365);
 	border-radius: 10px;
 
 	:focus {
@@ -198,7 +198,7 @@ export const PortfolioSlideDetails = styled.div`
 
 	padding: 0 1.5em 1.5em;
 
-	border-top: 1px solid white;
+	border-top: 1px solid rgb(365, 365, 365);
 
 	& > h6 {
 		margin: 0.5em 0;

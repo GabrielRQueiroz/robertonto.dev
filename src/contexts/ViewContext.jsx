@@ -45,12 +45,12 @@ const ViewContextProvider = (props) => {
 	};
 
 	const skipToEnd = () => {
-		toggleRocketSound({ volume: 0.5 });
+		toggleRocketSound({ volume: 0.2 });
 		setViewIndex(views.length - 1);
 	};
 
 	const skipToBeginning = () => {
-		toggleRocketSound({ volume: 0.5 });
+		toggleRocketSound({ volume: 0.2 });
 		setViewIndex(0);
 	};
 

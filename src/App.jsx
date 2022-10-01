@@ -5,8 +5,8 @@ import { ViewContext } from './contexts/ViewContext';
 import Header from './components/Header/Header';
 import ViewButton from './components/ViewButton/ViewButton';
 
-import { MainFrame } from './styles/Global';
 import Rocket from './components/Rocket/Rocket';
+import { MainFrame } from './styles/Global';
 
 function App() {
 	const { viewIndex, views } = useContext(ViewContext);
@@ -31,8 +31,8 @@ function App() {
 		<>
 			<Header />
 			<>
-				<ViewButton direction='left' />
-				<ViewButton direction='right' />
+				<ViewButton tabIndex={-1} title="Mudar para a tela da esquerda" direction='left' />
+				<ViewButton tabIndex={-1} title="Muda para a tela da direita" direction='right' />
 			</>
 			<MainFrame views={views} viewIndex={viewIndex}>
 				{views.map((view) => view)}

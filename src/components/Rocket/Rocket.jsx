@@ -27,8 +27,8 @@ const Rocket = () => {
 	};
 
 	return (
-		<RocketContainer onClick={flyThoughPage} tabIndex={direction === 'right' ? 3 : 999} labeledBy='where-to' direction={direction}>
-			<RocketIcon>🚀</RocketIcon>
+		<RocketContainer onClick={flyThoughPage} tabIndex={direction === 'right' ? 3 : 999} aria-labelledby='where-to' direction={direction}>
+			<RocketIcon direction={direction}>🚀</RocketIcon>
 			<p id='where-to'>{direction === 'right' ? 'Entrar em contato' : 'Voltar ao início'}</p>
 		</RocketContainer>
 	);

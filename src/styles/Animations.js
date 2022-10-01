@@ -69,6 +69,7 @@ export const shakingEffect = keyframes`
    }
 `;
 
+
 export const implodeEffect = keyframes`
 	0% {
 		transform: translateY(-50%) scale(1);
@@ -94,5 +95,15 @@ export const appearEffect = keyframes`
 
 	100% {
 		transform: translateY(-50%) scale(1);
+	}
+`;
+
+export const spinning = keyframes`
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
 	}
 `;

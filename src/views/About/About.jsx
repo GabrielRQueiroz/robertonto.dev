@@ -22,7 +22,7 @@ const About = () => {
 	return (
 		<AboutSection>
 			<AboutContainer>
-				<AboutTable onFocus={accessiblyGoToNextView} tabIndex={8} aria-label='Sobre mim'>
+				<AboutTable role='presentation' onFocus={accessiblyGoToNextView} tabIndex={8} aria-label='Sobre mim'>
 					<tbody>
 						<tr>
 							<td tabIndex={9}>

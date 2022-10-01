@@ -118,7 +118,7 @@ export const GreetingsGreetings = styled.div`
 		font-style: italic;
 		font-weight: 400;
 
-		color: darkgray;
+		color: rgb(169, 169, 169);
 	}
 `;
 

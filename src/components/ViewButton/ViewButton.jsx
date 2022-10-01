@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import { ViewContext } from '../../contexts/ViewContext';
 import { ViewButtonFace, ViewButtonWrapper } from './ViewButton.styled';
 
-const ViewButton = ({ direction = 'right' | 'left' }) => {
+const ViewButton = ({ direction = 'right' | 'left' }, props) => {
 	const { nextView, previousView, viewIndex, views, throwLastViewToast } = useContext(ViewContext);
 	const [isDisabled, setIsDisabled] = useState(false);
 
@@ -36,7 +36,7 @@ const ViewButton = ({ direction = 'right' | 'left' }) => {
 
 	return (
 		<>
-			<ViewButtonWrapper isDisabled={isDisabled} direction={direction} type='button' tabIndex={-1} aria-label='Mais sobre mim' onClick={handleViewChange}>
+			<ViewButtonWrapper isDisabled={isDisabled} direction={direction} type='button' tabIndex={-1} aria-label='Mais sobre mim' onClick={handleViewChange} {...props}>
 				<ViewButtonFace isDisabled={isDisabled}>
 					<FontAwesomeIcon icon={direction === 'right' ? faChevronRight : faChevronLeft} />
 				</ViewButtonFace>

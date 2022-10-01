@@ -34,7 +34,8 @@ const Portfolio = () => {
 	const accessiblyGoToPreviousView = () => currentView.props.view !== 'Portfolio' && previousView();
 
 	useEffect(() => {
-		// Seems useless but it's a hack to avoid unexpected view bugs on the slider.
+		// Seems useless but it's a hack to avoid unexpected view bugs on the 
+		// slider by resizing the Flicking component when it enters the screen.
 		currentView.props.view !== 'Portfolio' && setOnScreen(false);
 		currentView.props.view === 'Portfolio' && setOnScreen(true);
 	}, [currentView]);
@@ -61,7 +62,17 @@ const Portfolio = () => {
 
 	return (
 		<PortfolioSection>
-			<PortfolioSlider tabIndex={100} onScreen={onScreen} onFocus={accessiblyGoToNextView} plugins={_plugins} circular={true} horizontal={false} preventClickOnDrag={true}>
+			<PortfolioSlider
+				tabIndex={100}
+				onScreen={onScreen}
+				onFocus={accessiblyGoToNextView}
+				plugins={_plugins}
+				circular={true}
+				horizontal={false}
+				preventClickOnDrag={true}
+				interruptable={false}
+				changeOnHold={false}
+			>
 				{projects.map(({ projectName, projectType, techStack, printscreen, key, repo, live }, index) => (
 					<PortfolioSlide tabIndex={101 + index * 6} key={key}>
 						<PortfolioSlideFigure>
@@ -72,12 +83,12 @@ const Portfolio = () => {
 							</div>
 							<PortfolioSlideLinksWrapper>
 								{live && (
-									<a href={live} tabIndex={103 + index * 6} aria-label={'Acessar página de demonstração desse projeto'} rel='noreferrer' target='_blank'>
+									<a href={live} tabIndex={103 + index * 6} aria-label={`Acessar demonstração do projeto ${projectName} em nova página`} rel='noreferrer' target='_blank'>
 										<FontAwesomeIcon icon={faComputer} />
 										Página
 									</a>
 								)}
-								<a href={repo} tabIndex={104 + index * 6} aria-label={'Acessar repositório desse projeto'} rel='noreferrer' target='_blank'>
+								<a href={repo} tabIndex={104 + index * 6} aria-label={`Acessar repositório do projeto ${projectName} em nova página`} rel='noreferrer' target='_blank'>
 									<FontAwesomeIcon icon={faGithub} />
 									Repositório
 								</a>

@@ -1,8 +1,8 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import emailjs from '@emailjs/browser';
 
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faCircleNotch, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { toast } from 'react-hot-toast';
@@ -13,6 +13,7 @@ import { ContactContainer, ContactForm, ContactSection } from './Contact.styled'
 
 const Contact = () => {
 	const { nextView, currentView } = useContext(ViewContext);
+	const [loading, setLoading] = useState(false);
 
 	const accessiblyGoToNextView = () => currentView.props.view !== 'Contact' && nextView();
 
@@ -28,11 +29,13 @@ const Contact = () => {
 	const submitMessage = (event) => {
 		event.preventDefault();
 
+		setLoading(true);
+
 		const email = event.target.email.value;
 
 		if (checkMail(email)) {
 			emailjs
-				.sendForm('service_41d089p', 'template_n2ssqra', event.target, 'fAt-v202bzW3D0fe6')
+				.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, event.target, process.env.REACT_APP_EMAILJS_API_KEY)
 				.then((res) => {
 					toast.success(`Mensagem enviada com sucesso! Obrigado por entrar em contato! 😀`, {
 						position: 'top-center',
@@ -44,8 +47,9 @@ const Contact = () => {
 						},
 					});
 					event.target.reset();
+					setLoading(false);
 				})
-				.catch((e) =>
+				.catch((e) => {
 					toast.error('Ocorreu um erro. Peço que tente novamente.', {
 						position: 'top-center',
 						icon: '🙁',
@@ -55,8 +59,9 @@ const Contact = () => {
 							backgroundColor: 'rgb(43, 45, 45)',
 							fontSize: 'clamp(0.9em, 1.5vw, 1.1em)',
 						},
-					})
-				);
+					});
+					setLoading(false);
+				});
 		} else {
 			toast.error('Insira todas as informações corretamente.', {
 				position: 'top-center',
@@ -68,12 +73,13 @@ const Contact = () => {
 					fontSize: 'clamp(0.9em, 1.5vw, 1.1em)',
 				},
 			});
+			setLoading(false);
 		}
 	};
 
 	return (
 		<ContactSection>
-			<ContactContainer>
+			<ContactContainer loading={loading}>
 				<ContactForm onFocus={accessiblyGoToNextView} tabIndex={300} onSubmit={submitMessage} method='POST' id='contact'>
 					<div>
 						<label htmlFor='name'>Nome:</label>
@@ -88,8 +94,8 @@ const Contact = () => {
 						<textarea tabIndex={303} name='message' id='message' placeholder='Sua mensagem' required />
 					</div>
 				</ContactForm>
-				<SpringButton tabIndex={304} color='amethyst' form='contact' type='submit' value='Submit'>
-					Enviar <FontAwesomeIcon icon={faPaperPlane} />
+				<SpringButton disabled={loading} tabIndex={304} color='amethyst' form='contact' type='submit' value='Submit'>
+					Enviar <FontAwesomeIcon icon={loading ? faCircleNotch : faPaperPlane} />
 				</SpringButton>
 			</ContactContainer>
 		</ContactSection>

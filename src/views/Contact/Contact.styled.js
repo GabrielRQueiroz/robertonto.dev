@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { spinning } from '../../styles/Animations';
 
 export const ContactSection = styled.section`
-	height: 50%;
+	height: auto;
 	width: 100vw;
 `;
 
@@ -17,7 +18,20 @@ export const ContactContainer = styled.div`
 
 	gap: 2em;
 
+	background-color: rgb(27, 29, 30);
+
+	z-index: 996;
+
+	> button {
+		> div {
+			> svg {
+				animation: ${({ loading }) => (loading ? spinning : 'none')} 1s linear infinite;
+			}
+		}
+	}
+
 	@media screen and (max-width: 992px) {
+		gap: 1em;
 		width: 60vw;
 	}
 
@@ -94,7 +108,6 @@ export const ContactForm = styled.form`
 			background-color: rgb(30, 32, 34);
 
 			width: 100%;
-			height: fit-content;
 			min-height: 25vh;
 
 			font-size: 1em;

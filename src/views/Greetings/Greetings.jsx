@@ -18,7 +18,7 @@ const Greetings = () => {
 	const [isPlaying, toggleAudio] = useAudio(presentationAudio);
 	const { currentView, previousView } = useContext(ViewContext);
 
-	const callOnWhatsApp = () => window.open('https://web.whatsapp.com/send?phone=5561983025990', '_blank');
+	const callOnWhatsApp = () => window.open('https://api.whatsapp.com/send?phone=5561983025990', '_blank');
 	const callOnDiscord = () => window.open('https://discord.com/users/262736936546992130', '_blank');
 	const callOnLinkedIn = () => window.open('https://www.linkedin.com/in/gabrielrqueiroz/', '_blank');
 	const callOnInstagram = () => window.open('https://www.instagram.com/gabriel.rqueiroz', '_blank');
@@ -43,7 +43,7 @@ const Greetings = () => {
 					<p>Que tal uma conversa?</p>
 				</GreetingsGreetings>
 
-				<SpringButton tabIndex={4} onClick={callOnWhatsApp} color='green'>
+				<SpringButton title='Mandar mensagem no Whatsapp em uma nova página' tabIndex={4} onClick={callOnWhatsApp} rel='noreferrer' color='green'>
 					<FontAwesomeIcon icon={faWhatsapp} />
 					Manda um oi!
 				</SpringButton>
@@ -51,15 +51,15 @@ const Greetings = () => {
 				<Separator>ou aqui</Separator>
 
 				<ButtonHolder>
-					<SpringButton tabIndex={5} onClick={callOnDiscord} color='blue'>
+					<SpringButton title='Me adicionar no Discord em uma nova página' tabIndex={5} onClick={callOnDiscord} rel='noreferrer' color='blue'>
 						<FontAwesomeIcon icon={faDiscord} />
 					</SpringButton>
 
-					<SpringButton tabIndex={6} onClick={callOnInstagram} color='pink'>
+					<SpringButton title='Mandar mensagem no Instagram em uma nova página' tabIndex={6} onClick={callOnInstagram} rel='noreferrer' color='pink'>
 						<FontAwesomeIcon icon={faInstagram} />
 					</SpringButton>
 
-					<SpringButton tabIndex={7} onClick={callOnLinkedIn} color='lightBlue' onFocus={accessiblyGoToPreviousView}>
+					<SpringButton title='Conectar comigo no LinkedIn em uma nova página' tabIndex={7} onClick={callOnLinkedIn} rel='noreferrer' color='lightBlue' onFocus={accessiblyGoToPreviousView}>
 						<FontAwesomeIcon icon={faLinkedinIn} />
 					</SpringButton>
 				</ButtonHolder>

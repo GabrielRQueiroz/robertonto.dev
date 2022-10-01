@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const RocketContainer = styled.button`
-	position: absolute;
+	position: fixed;
 	bottom: ${({ direction }) => (direction !== null ? '0' : '-50%')};
 	left: 50%;
 	transform: translateX(-50%);
@@ -16,10 +16,11 @@ export const RocketContainer = styled.button`
 
 	transition: bottom 0.25s ease-in-out;
 
-	z-index: 999;
+	z-index: 990;
 
 	&:hover :first-child {
-		transform: ${({ direction }) => (direction === 'left' ? 'rotate(-90deg)' : 'rotate(0deg)')};
+		filter: brightness(1);
+		transform: scale(1.2) ${({ direction }) => (direction === 'right' ? 'rotate(45deg)' : 'rotate(-135deg)')};
 	}
 
 	:hover > p + p::after {
@@ -28,12 +29,15 @@ export const RocketContainer = styled.button`
 `;
 
 export const RocketIcon = styled.p`
-	font-size: clamp(1.5em, 4vw, 2em);
+	font-size: clamp(1.75em, 4vw, 2em);
 	text-align: center;
-	margin-bottom: 0.25em;
+	margin-bottom: 0.1em;
 
-	transform: rotate(-45deg);
-	transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	filter: brightness(0.9);
+	transform: ${({ direction }) => (direction === 'right' ? 'rotate(45deg)' : 'rotate(-135deg)')};
+	transition: all 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+
+	pointer-events: none;
 
 	+ p {
 		position: relative;

@@ -34,7 +34,7 @@ export const ResumeEvent = styled.div`
 
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
-	border: 2px dashed white;
+	border: 2px dashed rgb(365, 365, 365);
 	border-radius: 10px;
 
 	> div {
@@ -51,7 +51,7 @@ export const ResumeEvent = styled.div`
 
 		width: 100%;
 
-		border-left: 2px dashed white;
+		border-left: 2px dashed rgb(365, 365, 365);
 	}
 
 	> svg {
@@ -71,7 +71,7 @@ export const ResumeEvent = styled.div`
 		background-color: rgb(27, 29, 30);
 		border-radius: 50%;
 
-		border: 1px solid white;
+		border: 1px solid rgb(365, 365, 365);
 	}
 
 	@media screen and (max-width: 992px) {
@@ -138,7 +138,7 @@ export const ResumeEventDescription = styled.p`
 		transform: translateX(-50%) translateY(-50%);
 
 		background-color: rgb(27, 29, 30);
-		border: 2px solid white;
+		border: 2px solid rgb(365, 365, 365);
 		border-radius: 50%;
 		padding: 0.25em;
 
@@ -158,7 +158,7 @@ export const ResumeEventDescription = styled.p`
 		height: 0;
 
 		background-color: transparent;
-		border: 1px dashed white;
+		border: 1px dashed rgb(365, 365, 365);
 	}
 `;
 

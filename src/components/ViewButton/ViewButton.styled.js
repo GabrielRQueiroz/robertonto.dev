@@ -13,7 +13,11 @@ export const ViewButtonWrapper = styled.button`
 	width: clamp(40px, 7.5vw, 56px);
 	height: clamp(40px, 7.5vw, 56px);
 	border-radius: 50%;
-	background-color: rgb(35, 38, 38);
+	background-image: linear-gradient(to left, rgb(27, 30, 30) 0%, rgb(35, 38, 38) 15%, rgb(35, 38, 38) 85%, rgb(27, 30, 30) 100%);
+	background-image: -ms-linear-gradient(left, rgb(27, 30, 30) 0%, rgb(35, 38, 38) 15%, rgb(35, 38, 38) 85%, rgb(27, 30, 30) 100%);
+	background-image: -moz-linear-gradient(left, rgb(27, 30, 30) 0%, rgb(35, 38, 38) 15%, rgb(35, 38, 38) 85%, rgb(27, 30, 30) 100%);
+	background-image: -o-linear-gradient(left, rgb(27, 30, 30) 0%, rgb(35, 38, 38) 15%, rgb(35, 38, 38) 85%, rgb(27, 30, 30) 100%);
+	background-image: -webkit-linear-gradient(left, rgb(27, 30, 30) 0%, rgb(35, 38, 38) 15%, rgb(35, 38, 38) 85%, rgb(27, 30, 30) 100%);
 
 	box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.2);
 
@@ -25,7 +29,7 @@ export const ViewButtonWrapper = styled.button`
 	left: ${(props) => (props.direction === 'right' ? 'auto' : '16px')};
 	right: ${(props) => (props.direction === 'right' ? '16px' : 'auto')};
 
-	animation: ${({ isDisabled }) => (isDisabled ? implodeEffect : appearEffect)} 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+	animation: ${({ isDisabled }) => (isDisabled ? implodeEffect : appearEffect)} 0.5s ${({ isDisabled }) => (isDisabled ? 'cubic-bezier(0.215, 0.355, 0.6, 1)' : 'cubic-bezier(0.215, 0.6, 0.355, 1)')};
 	animation-delay: 100ms;
 	animation-fill-mode: ${({ isDisabled }) => (isDisabled ? 'forwards' : 'backwards')};
 
@@ -42,6 +46,8 @@ export const ViewButtonWrapper = styled.button`
 export const ViewButtonFace = styled.div`
 	width: 100%;
 	height: 100%;
+
+	padding: 1em;
 
 	position: relative;
 
