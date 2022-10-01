@@ -1,12 +1,14 @@
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ViewContext } from '../../contexts/ViewContext';
 import { ViewButtonFace, ViewButtonWrapper } from './ViewButton.styled';
 
 const ViewButton = ({ direction = 'right' | 'left' }, props) => {
 	const { nextView, previousView, viewIndex, views, throwLastViewToast } = useContext(ViewContext);
 	const [isDisabled, setIsDisabled] = useState(false);
+	const {t} = useTranslation();
 
 	useEffect(() => {
 		if (viewIndex === 0 && direction === 'left') {
@@ -36,7 +38,7 @@ const ViewButton = ({ direction = 'right' | 'left' }, props) => {
 
 	return (
 		<>
-			<ViewButtonWrapper isDisabled={isDisabled} direction={direction} type='button' tabIndex={-1} aria-label='Mais sobre mim' onClick={handleViewChange} {...props}>
+			<ViewButtonWrapper isDisabled={isDisabled} direction={direction} type='button' tabIndex={-1} aria-label={t('ViewButton.aria')} onClick={handleViewChange} {...props}>
 				<ViewButtonFace isDisabled={isDisabled}>
 					<FontAwesomeIcon icon={direction === 'right' ? faChevronRight : faChevronLeft} />
 				</ViewButtonFace>

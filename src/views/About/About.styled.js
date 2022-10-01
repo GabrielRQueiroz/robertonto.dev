@@ -32,7 +32,7 @@ export const AboutContainer = styled.div`
 	width: 55vw;
 
 	::after {
-		content: 'Sobre mim';
+		content: '${({ title }) => title}';
 		position: absolute;
 
 		top: 0;
