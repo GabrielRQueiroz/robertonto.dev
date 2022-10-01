@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { toast } from 'react-hot-toast';
 
+import { useTranslation } from 'react-i18next';
 import SpringButton from '../../components/SpringButton/SpringButton';
 import { ViewContext } from '../../contexts/ViewContext';
 import { ContactContainer, ContactForm, ContactSection } from './Contact.styled';
@@ -14,6 +15,7 @@ import { ContactContainer, ContactForm, ContactSection } from './Contact.styled'
 const Contact = () => {
 	const { nextView, currentView } = useContext(ViewContext);
 	const [loading, setLoading] = useState(false);
+	const { t } = useTranslation();
 
 	const accessiblyGoToNextView = () => currentView.props.view !== 'Contact' && nextView();
 
@@ -37,7 +39,7 @@ const Contact = () => {
 			emailjs
 				.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, event.target, process.env.REACT_APP_EMAILJS_API_KEY)
 				.then((res) => {
-					toast.success(`Mensagem enviada com sucesso! Obrigado por entrar em contato! 😀`, {
+					toast.success(t('Contact.success'), {
 						position: 'top-center',
 						duration: 4000,
 						style: {
@@ -50,7 +52,7 @@ const Contact = () => {
 					setLoading(false);
 				})
 				.catch((e) => {
-					toast.error('Ocorreu um erro. Peço que tente novamente.', {
+					toast.error(t('Contact.net-error'), {
 						position: 'top-center',
 						icon: '🙁',
 						duration: 2500,
@@ -63,7 +65,7 @@ const Contact = () => {
 					setLoading(false);
 				});
 		} else {
-			toast.error('Insira todas as informações corretamente.', {
+			toast.error(t('Contact.val-error'), {
 				position: 'top-center',
 				icon: '🚫',
 				duration: 2500,
@@ -82,20 +84,20 @@ const Contact = () => {
 			<ContactContainer loading={loading}>
 				<ContactForm onFocus={accessiblyGoToNextView} tabIndex={300} onSubmit={submitMessage} method='POST' id='contact'>
 					<div>
-						<label htmlFor='name'>Nome:</label>
-						<input tabIndex={301} type='text' name='user_name' id='name' placeholder='Seu nome' required />
+						<label htmlFor='name'>{t('Contact.name')}</label>
+						<input tabIndex={301} type='text' name='user_name' id='name' placeholder={t('Contact.name.placeholder')} required />
 					</div>
 					<div>
-						<label htmlFor='email'>E-mail:</label>
-						<input tabIndex={302} type='email' name='user_email' id='email' placeholder='Seu e-mail' required />
+						<label htmlFor='email'>{t('Contact.email')}</label>
+						<input tabIndex={302} type='email' name='user_email' id='email' placeholder={t('Contact.email.placeholder')} required />
 					</div>
 					<div>
-						<label htmlFor='message'>Mensagem:</label>
-						<textarea tabIndex={303} name='message' id='message' placeholder='Sua mensagem' required />
+						<label htmlFor='message'>{t('Contact.message')}</label>
+						<textarea tabIndex={303} name='message' id='message' placeholder={t('Contact.message.placeholder')} required />
 					</div>
 				</ContactForm>
 				<SpringButton disabled={loading} tabIndex={304} color='amethyst' form='contact' type='submit' value='Submit'>
-					Enviar <FontAwesomeIcon icon={loading ? faCircleNotch : faPaperPlane} />
+					{loading ? t('Contact.button.loading') : t('Contact.button') } <FontAwesomeIcon icon={loading ? faCircleNotch : faPaperPlane} />
 				</SpringButton>
 			</ContactContainer>
 		</ContactSection>

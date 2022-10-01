@@ -7,9 +7,11 @@ import { ResumeEvent, ResumeEventDate, ResumeEventDescription, ResumeEventLocati
 
 import { Fade, Perspective } from '@egjs/flicking-plugins';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTranslation } from 'react-i18next';
 
 const Resume = () => {
 	const { currentView, nextView, previousView } = useContext(ViewContext);
+	const { i18n } = useTranslation();
 	const _plugins = [new Fade('', 1.2), new Perspective({ rotate: 0.25, scale: 0.25 })];
 
 	const accessiblyGoToNextView = () => currentView.props.view !== 'Resume' && nextView();
@@ -22,13 +24,13 @@ const Resume = () => {
 				{events.map(({ id, icon, title, location, period, description }, index) => (
 					<ResumeEvent tabIndex={12 + index * 5} key={id}>
 						<FontAwesomeIcon icon={icon} />
-						<ResumeEventTitle tabIndex={13 + index * 5}>{title}</ResumeEventTitle>
+						<ResumeEventTitle tabIndex={13 + index * 5}>{title[i18n.language]}</ResumeEventTitle>
 						<div>
-							<ResumeEventLocation tabIndex={14 + index * 5}>{location}</ResumeEventLocation>
-							<ResumeEventDate tabIndex={15 + index * 5}>{period}</ResumeEventDate>
+							<ResumeEventLocation tabIndex={14 + index * 5}>{location[i18n.language]}</ResumeEventLocation>
+							<ResumeEventDate tabIndex={15 + index * 5}>{period[i18n.language]}</ResumeEventDate>
 						</div>
 						<ResumeEventDescription tabIndex={16 + index * 5} onFocus={events.length - 1 === index ? accessiblyGoToPreviousView : null}>
-							{description}
+							{description[i18n.language]}
 						</ResumeEventDescription>
 					</ResumeEvent>
 				))}
