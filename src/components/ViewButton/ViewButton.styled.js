@@ -26,8 +26,8 @@ export const ViewButtonWrapper = styled.button`
 	align-items: center;
 	outline-offset: 4px;
 
-	left: ${(props) => (props.direction === 'right' ? 'auto' : '0.75em')};
-	right: ${(props) => (props.direction === 'right' ? '0.75em' : 'auto')};
+	left: ${({ direction }) => (direction === 'right' ? 'auto' : '0.75em')};
+	right: ${({ direction }) => (direction === 'right' ? '0.75em' : 'auto')};
 
 	animation: ${({ isDisabled }) => (isDisabled ? implodeEffect : appearEffect)} 0.5s ${({ isDisabled }) => (isDisabled ? 'cubic-bezier(0.215, 0.355, 0.6, 1)' : 'cubic-bezier(0.215, 0.6, 0.355, 1)')};
 	animation-delay: 100ms;

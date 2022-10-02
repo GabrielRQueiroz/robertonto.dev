@@ -42,11 +42,14 @@
 	"Contact.message.placeholder": "Your message",
 	"Contact.button": "Send",
 	"Contact.button.loading": "Sending",
+	"Contact.button.title": "Send message",
 	"Contact.success": "Message successfully sent! Thank you for getting in touch! 😀",
 	"Contact.net-error": "An error ocurred. Please, try again.",
 	"Contact.val-error": "Insert the information correctly.",
 	"Rocket.right": "Contact me",
 	"Rocket.left": "Go to beginning",
 	"ViewButton.aria": "More about me",
+	"ViewButton.left.title": "Change to view to the left ",
+	"ViewButton.right.title": "Change to view to the right ",
 	"Language.confirmation": "Are you sure you want to change the page language to portuguese?"
 }

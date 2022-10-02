@@ -79,7 +79,7 @@ export const LanguageButtonBtn = styled.button`
 	}
 `;
 
-export const ViewButtonFace = styled.div`
+export const LanguageButtonFace = styled.div`
 	width: 100%;
 	height: 100%;
 
