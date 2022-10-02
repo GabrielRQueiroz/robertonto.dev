@@ -74,23 +74,24 @@ const Portfolio = () => {
 				preventClickOnDrag={true}
 				interruptable={false}
 				changeOnHold={false}
+				moveType={['strict', 1]}
 			>
 				{projects.map(({ projectName, projectType, techStack, printscreen, key, repo, live }, index) => (
 					<PortfolioSlide tabIndex={101 + index * 6} key={key}>
 						<PortfolioSlideFigure>
-							<PortfolioSlideImage tabIndex={102 + index * 6} draggable={false} aria-label={`${projectName}, ${projectType}`} src={printscreen} alt={t("Portfolio.image.alt")} />
+							<PortfolioSlideImage tabIndex={102 + index * 6} draggable={false} aria-label={`${projectName}, ${projectType}`} src={printscreen} alt={t('Portfolio.image.alt')} />
 							<div>
 								<PortfolioProjectType>{projectType}</PortfolioProjectType>
 								<PortfolioSlideTitle>{projectName}</PortfolioSlideTitle>
 							</div>
 							<PortfolioSlideLinksWrapper>
 								{live && (
-									<a href={live} tabIndex={103 + index * 6} aria-label={`${t("Portfolio.demo.aria1")} ${projectName} ${t("Portfolio.demo.aria2")}`} rel='noreferrer' target='_blank'>
+									<a href={live} tabIndex={103 + index * 6} aria-label={`${t('Portfolio.demo.aria1')} ${projectName} ${t('Portfolio.demo.aria2')}`} rel='noreferrer' target='_blank'>
 										<FontAwesomeIcon icon={faComputer} />
 										{t('Portfolio.demo')}
 									</a>
 								)}
-								<a href={repo} tabIndex={104 + index * 6} aria-label={`${t("Portfolio.repo.aria1")} ${projectName} ${t("Portfolio.repo.aria2")}`} rel='noreferrer' target='_blank'>
+								<a href={repo} tabIndex={104 + index * 6} aria-label={`${t('Portfolio.repo.aria1')} ${projectName} ${t('Portfolio.repo.aria2')}`} rel='noreferrer' target='_blank'>
 									<FontAwesomeIcon icon={faGithub} />
 									{t('Portfolio.repo')}
 								</a>
@@ -100,7 +101,7 @@ const Portfolio = () => {
 							<h6>
 								<FontAwesomeIcon icon={faCubesStacked} /> Tech stack:
 							</h6>
-							<ul tabIndex={105 + index * 6} aria-label={t("Portfolio.stack.aria")}>
+							<ul tabIndex={105 + index * 6} aria-label={t('Portfolio.stack.aria')}>
 								{techStack.map(({ tech, faIcon, color }) => (
 									<PortfolioSlideDetail onFocus={projects.length - 1 === index ? accessiblyGoToPreviousView : null} tabIndex={106 + index * 6} aria-label={tech} hoverColor={color} key={tech}>
 										<FontAwesomeIcon icon={faIcon} />

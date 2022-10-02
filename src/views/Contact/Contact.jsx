@@ -96,7 +96,7 @@ const Contact = () => {
 						<textarea tabIndex={303} name='message' id='message' placeholder={t('Contact.message.placeholder')} required />
 					</div>
 				</ContactForm>
-				<SpringButton disabled={loading} tabIndex={304} color='amethyst' form='contact' type='submit' value='Submit'>
+				<SpringButton disabled={loading} title={t('Contact.button.title')} tabIndex={304} color='amethyst' form='contact' type='submit' value='Submit'>
 					{loading ? t('Contact.button.loading') : t('Contact.button') } <FontAwesomeIcon icon={loading ? faCircleNotch : faPaperPlane} />
 				</SpringButton>
 			</ContactContainer>

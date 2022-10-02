@@ -10,9 +10,16 @@ import LanguageButton from './components/LanguageButton/LanguageButton';
 import Rocket from './components/Rocket/Rocket';
 import { MainFrame } from './styles/Global';
 
-function App() {
+import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill';
+
+const App = () => {
 	const { viewIndex, views } = useContext(ViewContext);
 	const { t, i18n } = useTranslation();
+
+	useEffect(() => {
+		// eslint-disable-next-line
+		polyfillCountryFlagEmojis();
+	}, []);
 
 	useEffect(() => {
 		// Disable pinch zoom
@@ -31,8 +38,12 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		i18n.changeLanguage(localStorage.getItem('language') || 'en');
+		i18n.changeLanguage(localStorage.getItem('i18nextLng') || 'en-US');
 	}, [i18n]);
+
+	useEffect(() => {
+		i18n.changeLanguage(i18n.language);
+	}, [i18n, i18n.language]);
 
 	return (
 		<>
@@ -48,6 +59,6 @@ function App() {
 			<Rocket />
 		</>
 	);
-}
+};
 
 export default App;

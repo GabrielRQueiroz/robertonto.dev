@@ -29,7 +29,14 @@ const Rocket = () => {
 	};
 
 	return (
-		<RocketContainer onClick={flyThoughPage} tabIndex={direction === 'right' ? 3 : 999} aria-labelledby='where-to' direction={direction}>
+		<RocketContainer
+			type='button'
+			onClick={flyThoughPage}
+			tabIndex={direction === 'right' ? 3 : 999}
+			title={direction === 'right' ? t('Rocket.right') : t('Rocket.left')}
+			aria-labelledby='where-to'
+			direction={direction}
+		>
 			<RocketIcon direction={direction}>🚀</RocketIcon>
 			<p id='where-to'>{direction === 'right' ? t('Rocket.right') : t('Rocket.left')}</p>
 		</RocketContainer>

@@ -12,7 +12,7 @@ export const ResumeSection = styled.section`
 `;
 
 export const ResumeTimeline = styled(Flicking)`
-	height: 100%;
+	height: ${({onScreen}) => onScreen ? "100%" : "99%"};
 `;
 
 export const ResumeEvent = styled.div`

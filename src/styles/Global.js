@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
 
 	box-sizing: border-box;
 
-	font-family: 'Roboto', sans-serif;
+   font-family: 'Twemoji Country Flags', 'Roboto', sans-serif !important;
 
 	color: #fff;
 

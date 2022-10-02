@@ -12,7 +12,7 @@ export const PortfolioSection = styled.section`
 `;
 
 export const PortfolioSlider = styled(Flicking)`
-	height: ${(props) => (props.onScreen ? '100%' : '99%')};
+	height: ${({onScreen}) => (onScreen ? '100%' : '99%')};
 `;
 
 export const PortfolioSlide = styled.div`
@@ -234,7 +234,7 @@ export const PortfolioSlideDetail = styled.li`
 
 	font-weight: 700;
 
-	background-color: ${(props) => props.hoverColor}95;
+	background-color: ${({ hoverColor }) => hoverColor}95;
 
 	cursor: pointer;
 

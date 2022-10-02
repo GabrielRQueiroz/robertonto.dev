@@ -8,7 +8,7 @@ i18n
 	.use(LanguageDetector)
 	.use(initReactI18next)
 	.init({
-		fallbackLng: 'en',
+		fallbackLng: 'en-US',
 		debug: true,
 		backend: {
 			loadPath: process.env.REACT_APP_I18N_PATH,
