@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, Fragment, useEffect, useMemo, useState } from 'react';
 import backwardAudio from '../assets/sounds/coming_button_click.mp3';
 import forwardAudio from '../assets/sounds/going_button_click.mp3';
 import rocketSound from '../assets/sounds/rocket_sound.wav';
@@ -9,26 +9,36 @@ import Greetings from '../views/Greetings/Greetings';
 import Portfolio from '../views/Portfolio/Portfolio';
 import Resume from '../views/Resume/Resume';
 
-export const ViewContext = createContext(0);
+import { useTranslation } from 'react-i18next';
 
-const views = [
-	<Greetings view='Greetings' heading='O Roberto' emoji='☕' hideIcons={false} key={0} />,
-	<About view='About' heading='O Roberto' emoji='☕' hideIcons={false} key={1} />,
-	<Resume view='Resume' heading='Résumé' emoji='💼' hideIcons={true} key={2} />,
-	<Portfolio view='Portfolio' heading='Portfólio' emoji='💻' hideIcons={true} key={3} />,
-	<Contact view='Contact' heading='Contato' emoji='📫' hideIcons={false} key={4} />,
-];
+export const ViewContext = createContext(0);
 
 const ViewContextProvider = (props) => {
 	const [viewIndex, setViewIndex] = useState(0);
-	const [currentView, setCurrentView] = useState(views[viewIndex]);
+	const [currentView, setCurrentView] = useState(<Fragment />);
 	const toggleForwardAudio = useSoundFX(forwardAudio);
 	const toggleBackwardAudio = useSoundFX(backwardAudio);
 	const toggleRocketSound = useSoundFX(rocketSound);
+	const { t } = useTranslation();
+
+	const views = useMemo(
+		() => [
+			<Greetings view='Greetings' heading={t('Header.Greetings')} emoji='☕' hideIcons={false} key={0} />,
+			<About view='About' heading={t('Header.About')} emoji='☕' hideIcons={false} key={1} />,
+			<Resume view='Resume' heading={t('Header.Resume')} emoji='💼' hideIcons={true} key={2} />,
+			<Portfolio view='Portfolio' heading={t('Header.Portfolio')} emoji='💻' hideIcons={true} key={3} />,
+			<Contact view='Contact' heading={t('Header.Contact')} emoji='📫' hideIcons={false} key={4} />,
+		],
+		[t]
+	);
+
+	useEffect(() => {
+		setCurrentView(views[0]);
+	}, [views]);
 
 	useEffect(() => {
 		setCurrentView(views[viewIndex]);
-	}, [viewIndex]);
+	}, [views, viewIndex]);
 
 	const nextView = () => {
 		if (viewIndex < views.length - 1) {

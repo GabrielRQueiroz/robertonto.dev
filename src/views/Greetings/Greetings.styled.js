@@ -30,7 +30,7 @@ export const ImageHolder = styled.figure`
 
 		border-radius: 20px;
 		animation-name: ${rotateClipPath};
-		animation-play-state: ${(props) => (props.onScreen ? 'running' : 'paused')};
+		animation-play-state: ${({ onScreen }) => (onScreen ? 'running' : 'paused')};
 		animation-fill-mode: forwards;
 		animation-iteration-count: infinite;
 		animation-duration: 15s;

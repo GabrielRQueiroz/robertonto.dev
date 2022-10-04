@@ -5,11 +5,21 @@ import { ViewContext } from './contexts/ViewContext';
 import Header from './components/Header/Header';
 import ViewButton from './components/ViewButton/ViewButton';
 
+import { useTranslation } from 'react-i18next';
+import LanguageButton from './components/LanguageButton/LanguageButton';
 import Rocket from './components/Rocket/Rocket';
 import { MainFrame } from './styles/Global';
 
-function App() {
+import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill';
+
+const App = () => {
 	const { viewIndex, views } = useContext(ViewContext);
+	const { t, i18n } = useTranslation();
+
+	useEffect(() => {
+		// eslint-disable-next-line
+		polyfillCountryFlagEmojis();
+	}, []);
 
 	useEffect(() => {
 		// Disable pinch zoom
@@ -27,12 +37,21 @@ function App() {
 		);
 	}, []);
 
+	useEffect(() => {
+		i18n.changeLanguage(localStorage.getItem('i18nextLng') || 'en-US');
+	}, [i18n]);
+
+	useEffect(() => {
+		i18n.changeLanguage(i18n.language);
+	}, [i18n, i18n.language]);
+
 	return (
 		<>
 			<Header />
+			<LanguageButton />
 			<>
-				<ViewButton tabIndex={-1} title="Mudar para a tela da esquerda" direction='left' />
-				<ViewButton tabIndex={-1} title="Muda para a tela da direita" direction='right' />
+				<ViewButton tabIndex={-1} title={t('ViewButton.left.title')} direction='left' />
+				<ViewButton tabIndex={-1} title={t('ViewButton.right.title')} direction='right' />
 			</>
 			<MainFrame views={views} viewIndex={viewIndex}>
 				{views.map((view) => view)}
@@ -40,6 +59,6 @@ function App() {
 			<Rocket />
 		</>
 	);
-}
+};
 
 export default App;
