@@ -1,6 +1,7 @@
 {
 	"Header.Greetings": "O Roberto",
 	"Header.About": "O Roberto",
+	"Header.Services": "O que eu faço",
 	"Header.Resume": "Résumé",
 	"Header.Portfolio": "Portfólio",
 	"Header.Contact": "Contato",
@@ -51,5 +52,6 @@
 	"ViewButton.aria": "Mais sobre mim",
 	"ViewButton.left.title": "Mudar para a tela da esquerda",
 	"ViewButton.right.title": "Mudar para a tela da direita",
-	"Language.confirmation": "Tem certeza que deseja mudar o idioma da página para inglês?"
+	"Language.confirmation": "Tem certeza que deseja mudar o idioma da página para inglês?",
+	"Language.button.aria": "Mudar o idioma da página para inglês"
 }

@@ -10,6 +10,7 @@ import Portfolio from '../views/Portfolio/Portfolio';
 import Resume from '../views/Resume/Resume';
 
 import { useTranslation } from 'react-i18next';
+import Services from '../views/Services/Services';
 
 export const ViewContext = createContext(0);
 
@@ -25,9 +26,10 @@ const ViewContextProvider = (props) => {
 		() => [
 			<Greetings view='Greetings' heading={t('Header.Greetings')} emoji='☕' hideIcons={false} key={0} />,
 			<About view='About' heading={t('Header.About')} emoji='☕' hideIcons={false} key={1} />,
-			<Resume view='Resume' heading={t('Header.Resume')} emoji='💼' hideIcons={true} key={2} />,
-			<Portfolio view='Portfolio' heading={t('Header.Portfolio')} emoji='💻' hideIcons={true} key={3} />,
-			<Contact view='Contact' heading={t('Header.Contact')} emoji='📫' hideIcons={false} key={4} />,
+			<Services view='Services' heading={t('Header.Services')} emoji='🧠' hideIcons={false} key={2} />,
+			<Resume view='Resume' heading={t('Header.Resume')} emoji='💼' hideIcons={true} key={3} />,
+			<Portfolio view='Portfolio' heading={t('Header.Portfolio')} emoji='💻' hideIcons={true} key={4} />,
+			<Contact view='Contact' heading={t('Header.Contact')} emoji='📫' hideIcons={false} key={5} />,
 		],
 		[t]
 	);
