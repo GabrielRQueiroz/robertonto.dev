@@ -16,6 +16,7 @@ const Contact = () => {
 	const { nextView, currentView } = useContext(ViewContext);
 	const [loading, setLoading] = useState(false);
 	const { t } = useTranslation();
+	const viewPaginationIndex = 5;
 
 	const accessiblyGoToNextView = () => currentView.props.view !== 'Contact' && nextView();
 
@@ -82,21 +83,21 @@ const Contact = () => {
 	return (
 		<ContactSection>
 			<ContactContainer loading={loading}>
-				<ContactForm onFocus={accessiblyGoToNextView} tabIndex={300} onSubmit={submitMessage} method='POST' id='contact'>
+				<ContactForm onFocus={accessiblyGoToNextView} tabIndex={viewPaginationIndex * 100 + 1} onSubmit={submitMessage} method='POST' id='contact'>
 					<div>
 						<label htmlFor='name'>{t('Contact.name')}</label>
-						<input tabIndex={301} type='text' name='user_name' id='name' placeholder={t('Contact.name.placeholder')} required />
+						<input tabIndex={viewPaginationIndex * 100 + 2} type='text' name='user_name' id='name' placeholder={t('Contact.name.placeholder')} required />
 					</div>
 					<div>
 						<label htmlFor='email'>{t('Contact.email')}</label>
-						<input tabIndex={302} type='email' name='user_email' id='email' placeholder={t('Contact.email.placeholder')} required />
+						<input tabIndex={viewPaginationIndex * 100 + 3} type='email' name='user_email' id='email' placeholder={t('Contact.email.placeholder')} required />
 					</div>
 					<div>
 						<label htmlFor='message'>{t('Contact.message')}</label>
-						<textarea tabIndex={303} name='message' id='message' placeholder={t('Contact.message.placeholder')} required />
+						<textarea tabIndex={viewPaginationIndex * 100 + 4} name='message' id='message' placeholder={t('Contact.message.placeholder')} required />
 					</div>
 				</ContactForm>
-				<SpringButton disabled={loading} title={t('Contact.button.title')} tabIndex={304} color='amethyst' form='contact' type='submit' value='Submit'>
+				<SpringButton disabled={loading} title={t('Contact.button.title')} tabIndex={viewPaginationIndex * 100 + 5} color='amethyst' form='contact' type='submit' value='Submit'>
 					{loading ? t('Contact.button.loading') : t('Contact.button') } <FontAwesomeIcon icon={loading ? faCircleNotch : faPaperPlane} />
 				</SpringButton>
 			</ContactContainer>

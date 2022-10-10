@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 
 const useAudio = (url) => {
@@ -24,6 +25,10 @@ const useAudio = (url) => {
 	}, [audio]);
 
 	return [playing, toggle];
+};
+
+useAudio.propTypes = {
+	url: PropTypes.string.isRequired,
 };
 
 export default useAudio;

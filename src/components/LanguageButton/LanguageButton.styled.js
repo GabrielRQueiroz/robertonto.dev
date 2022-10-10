@@ -94,7 +94,7 @@ export const LanguageButtonFace = styled.div`
 	border-radius: 10%;
 	background-color: rgb(43, 45, 45);
 
-	font-size: clamp(1em, 4vw, 1.5em);
+	font-size: clamp(1.25em, 4vw, 1.5em);
 	text-align: center;
 
 	will-change: transform;

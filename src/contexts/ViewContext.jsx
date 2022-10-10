@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { createContext, Fragment, useEffect, useMemo, useState } from 'react';
 import backwardAudio from '../assets/sounds/coming_button_click.mp3';
 import forwardAudio from '../assets/sounds/going_button_click.mp3';
@@ -67,6 +68,10 @@ const ViewContextProvider = (props) => {
 	};
 
 	return <ViewContext.Provider value={{ viewIndex, currentView, views, nextView, previousView, skipToEnd, skipToBeginning }}>{props.children}</ViewContext.Provider>;
+};
+
+ViewContextProvider.propTypes = {
+	children: PropTypes.node,
 };
 
 export default ViewContextProvider;
