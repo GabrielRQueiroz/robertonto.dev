@@ -1,6 +1,7 @@
 {
 	"Header.Greetings": "The Roberto",
 	"Header.About": "The Roberto",
+	"Header.Services": "What I do",
 	"Header.Resume": "Résumé",
 	"Header.Portfolio": "Portfolio",
 	"Header.Contact": "Contact",
@@ -51,5 +52,6 @@
 	"ViewButton.aria": "More about me",
 	"ViewButton.left.title": "Change to view to the left ",
 	"ViewButton.right.title": "Change to view to the right ",
-	"Language.confirmation": "Are you sure you want to change the page language to portuguese?"
+	"Language.confirmation": "Are you sure you want to change the page language to portuguese?",
+	"Language.button.aria": "Change the page language to portuguese"
 }
