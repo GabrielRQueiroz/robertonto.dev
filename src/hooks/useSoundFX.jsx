@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 
 const useSoundFX = (url) => {
@@ -25,6 +26,10 @@ const useSoundFX = (url) => {
 	}, [audio]);
 
 	return toggle;
+};
+
+useSoundFX.propTypes = {
+	url: PropTypes.string.isRequired,
 };
 
 export default useSoundFX;

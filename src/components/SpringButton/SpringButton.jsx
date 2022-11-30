@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { ButtonBody, ButtonFace } from './SpringButton.styled';
 
@@ -46,6 +47,16 @@ const SpringButton = (props) => {
 			</ButtonFace>
 		</ButtonBody>
 	);
+};
+
+SpringButton.propTypes = {
+	color: PropTypes.string,
+	disabled: PropTypes.bool,
+};
+
+SpringButton.defaultProps = {
+	color: 'blue',
+	disabled: false,
 };
 
 export default SpringButton;
